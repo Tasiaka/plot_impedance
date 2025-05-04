@@ -333,10 +333,10 @@ class ImpedancePlotterApp(QMainWindow):
         print(f"Удалено выбросов: {len(x_data_clean) - len(x_data_filtered)}. Осталось точек: {len(x_data_filtered)}")
 
         if len(x_data_filtered) < 3: # Проверяем, осталось ли достаточно точек после фильтрации
-             QMessageBox.warning(self, "Недостаточно данных", f"После очистки выбросов осталось слишком мало допустимых точек ({len(x_data_filtered)}) для построения графика.")
+            QMessageBox.warning(self, "Недостаточно данных", f"После очистки выбросов осталось слишком мало допустимых точек ({len(x_data_filtered)}) для построения графика.")
              # Очистка графика и выход
-             self.ax.cla()
-             if hasattr(self, 'cbar') and self.cbar is not None:
+            self.ax.cla()
+            if hasattr(self, 'cbar') and self.cbar is not None:
                 try: self.cbar.remove()
                 except ValueError: pass
                 del self.cbar
@@ -596,3 +596,4 @@ if __name__ == '__main__':
 
     # Запускаем цикл обработки событий PyQt
     sys.exit(app.exec())
+  
